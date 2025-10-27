@@ -185,18 +185,18 @@ main::after{
 .content{position:relative;z-index:3;max-width:1000px;width:100%;text-align:center;padding:0;border-radius:0;background:transparent;box-shadow:none}
 
 /* show the correct image for each era */
-#ancient:checked ~ main .era-media img#img-ancient{opacity:1;transform:translateX(-50%) scale(1);filter:none}
-#medieval:checked ~ main .era-media img#img-medieval{opacity:1;transform:translateX(-50%) scale(1);filter:none}
-#modern:checked ~ main .era-media img#img-modern{opacity:1;transform:translateX(-50%) scale(1);filter:none}
-#future:checked ~ main .era-media img#img-future{opacity:1;transform:translateX(-50%) scale(1);filter:none}
+#ancient:checked ~ main .era-media img#img-ancient{opacity:1;transform:translate(-50%, -50%) scale(1);filter:none}
+#medieval:checked ~ main .era-media img#img-medieval{opacity:1;transform:translate(-50%, -50%) scale(1);filter:none}
+#modern:checked ~ main .era-media img#img-modern{opacity:1;transform:translate(-50%, -50%) scale(1);filter:none}
+#future:checked ~ main .era-media img#img-future{opacity:1;transform:translate(-50%, -50%) scale(1);filter:none}
 
 /* media area: images show/hidden via opacity and transform */
 .era-media{position:relative;width:100%;height:70vh;display:block;padding:1rem 0;overflow:hidden}
 .era-media img{
   position:absolute;
-  top:0;
+  top:50%;
   left:50%;
-  transform:translateX(-50%) scale(0.95);
+  transform:translate(-50%, -50%);
   max-width:100%;
   height:auto;
   max-height:65vh;
@@ -206,8 +206,7 @@ main::after{
   border-radius:12px;
   box-shadow:0 8px 28px rgba(6,16,32,0.12);
   opacity:0;
-  transition:opacity .85s cubic-bezier(.2,.9,.2,1), transform .85s cubic-bezier(.2,.9,.2,1), filter .85s;
-  will-change:transform,opacity;
+  transition: none;
 }
 
 /* text overlay area below image */
@@ -232,16 +231,16 @@ footer{padding:.6rem;text-align:center;font-size:.85rem;color:var(--muted)}
 /* show the correct image for each era */
 /* delay image reveal until after transition animation completes */
 #ancient:checked ~ .transition .overlay .rocket{animation:rocketFly var(--trans-dur) cubic-bezier(.22,.9,.25,1) forwards}
-#ancient:checked ~ main .era-media img#img-ancient{transition-delay:var(--trans-dur);opacity:1;transform:scale(1);filter:none}
+#ancient:checked ~ main .era-media img#img-ancient{transition-delay:0s;opacity:1;transform:translate(-50%, -50%) scale(1);filter:none}
 
 #medieval:checked ~ .transition .overlay .rocket{animation:rocketFly var(--trans-dur) cubic-bezier(.22,.9,.25,1) forwards}
-#medieval:checked ~ main .era-media img#img-medieval{transition-delay:var(--trans-dur);opacity:1;transform:scale(1);filter:none}
+#medieval:checked ~ main .era-media img#img-medieval{transition-delay:0s;opacity:1;transform:translate(-50%, -50%) scale(1);filter:none}
 
 #modern:checked ~ .transition .overlay .rocket{animation:rocketFly var(--trans-dur) cubic-bezier(.22,.9,.25,1) forwards}
-#modern:checked ~ main .era-media img#img-modern{transition-delay:var(--trans-dur);opacity:1;transform:scale(1);filter:none}
+#modern:checked ~ main .era-media img#img-modern{transition-delay:0s;opacity:1;transform:translate(-50%, -50%) scale(1);filter:none}
 
 #future:checked ~ .transition .overlay .rocket{animation:rocketFly var(--trans-dur) cubic-bezier(.22,.9,.25,1) forwards}
-#future:checked ~ main .era-media img#img-future{transition-delay:var(--trans-dur);opacity:1;transform:scale(1);filter:none}
+#future:checked ~ main .era-media img#img-future{transition-delay:0s;opacity:1;transform:translate(-50%, -50%) scale(1);filter:none}
 
 /* overlay visibility animation: fade-in, hold, fade-out */
 @keyframes overlayFade{
